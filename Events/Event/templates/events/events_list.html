@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'events/list.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="top-bar">
+    <span class="brand">events.ie</span>
+    <div class="top-bar-options">
+      {% if is_admin %}
+        <button id="dashboard" class="btn-option">Dashboard</button>
+        <button id="addEventButton" class="btn-option">Add Event</button>
+      {% endif %}
+      <a href="{% url 'Event:logout' %}" class="btn logout-btn">Logout</a>
+    </div>
+</div>
+{% if is_admin %}
+<div id="admin-content-placeholder" class="adminContent" style="display: none;">
+</div>
+<div id="admin-content-placeholder2" class="adminContent2" style="display: none;">
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("dashboard").addEventListener("click", function() {
+      fetch("{% url 'AdminPage:dashboard' %}")
+      .then(response => response.text())
+      .then(html => {
+          document.getElementById('admin-content-placeholder').style.display = 'none';
+          document.getElementById('admin-content-placeholder2').style.display = 'flex';
+          document.getElementById('admin-content-placeholder2').innerHTML = html;
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("addEventButton").addEventListener("click", function() {
+          fetch("{% url 'AdminPage:add_event' %}")
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById('admin-content-placeholder').style.display = 'flex';
+              document.getElementById('admin-content-placeholder2').style.display = 'none';
+              document.getElementById('admin-content-placeholder').innerHTML = html;
+          });
+      });
+  });
+</script>
+{% else %}
+<div class="userContent">
+  <div class="list">
+    <h2>All Events</h2>
+          {% for event in all_events %}
+          <li class="all-event-item">
+            <span class="element">{{ event.date }}</span>
+            <span class="element">{{ event.title }}</span>
+            <span class="element">{{ event.location }}</span>
+            <a href="{% url 'Event:join_event' event.id %}" class="btn join-btn">Join</a>
+          </li>
+          {% empty %}
+          <p>No events nearby.</p>
+        {% endfor %}
+  </div>
+  <div class="cards">
+        {% for event in my_events %}
+          <li class="event-item">
+            <h3>{{ event.title }}</h3>
+            <p><i class="fas fa-map-marker-alt" style="color: black;"></i> {{ event.location }}</p>
+            <a href="#" class="btn join-btn">View</a>  
+          </li>
+        {% empty %}
+          <p>No events joined.</p>
+        {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endblock %}

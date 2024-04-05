@@ -1,0 +1,313 @@
+/* styles.css */
+
+* {
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding-top: 60px; 
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #452837, #1b3a57);
+    height: 90vh;
+    width: 100vw;
+}
+
+.top-bar {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: linear-gradient(to right, #ff7e67, #007bff); */
+    color: white;
+    padding: 10px 20px;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    z-index: 1000; 
+}
+
+.top-bar-options {
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.brand {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+
+
+.adminContent {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 70vw;
+    color: #fff;
+    padding: 2%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    overflow: scroll; 
+}
+
+.adminContent2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 80vh;
+    width: 80%;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden; 
+}
+
+.userContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 80vh;
+    width: 80%;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden; 
+}
+
+.btn-option {
+    background: none;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1px;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+.btn-option:hover {
+    background-color:  #005bbd;
+    }
+
+.logout-btn {
+    background-color: #ff7e67;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #e65c4f;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-bottom: 2px solid #e9ecef; 
+    background-color: #f8f9fa; 
+    transition: background-color 0.3s ease-in-out;
+}
+
+.join-btn {
+    padding: 10px 15px;
+    background-color: #ff7e67; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.join-btn:hover {
+    background-color: #e65c4f; 
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    font-weight: 200;
+}
+
+a.btn {
+    color: #fff;
+    background-color: #ff7e67; 
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a.btn:hover {
+    background-color: #cc653f; 
+}
+
+.my-events,
+.all-events {
+    margin: 20px;
+    padding: 10px;
+}
+
+.scrollable-event-list {
+    max-height: 300px;  
+    overflow-y: auto;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+}
+
+.subheads {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    width: 35%;
+    overflow-y: scroll;
+}
+
+.user-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0px 1px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.user-item:nth-child(even) {
+    background: rgba(255, 255, 255, 0.2); /* Light background for odd items */
+}
+
+.user-item:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2); /* Darker background for even items */
+}
+
+.user-item .element{
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 25%;
+}
+
+#delete-user{
+    color: #fff;
+}
+
+#delete-user:hover{
+    color: #000;
+}
+
+#delete-event{
+    color: #ff7e67;
+}
+
+#delete-event:hover{
+    color:  #005bbd;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    align-items: flex-start;
+    justify-content: flex-start; 
+    height: 100%;
+    width: 65%;
+    padding: 5px;
+}
+
+
+.event-item {
+    display: flex;
+    margin: 2%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    width: 150px;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 1000;
+    color: #000;
+}
+
+.event-item:hover{
+    background-color: #e4e4e4;
+}
+
+.event-item h3{
+    font-weight: 300;
+    background: linear-gradient(to right, #ff7e67, #007bff);
+    font-weight: 500;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to show the background */
+    display: inline; /* To ensure the gradient spans the text only */
+}
+
+.all-event-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0px 1px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.all-event-item:nth-child(even) {
+    background: rgba(255, 255, 255, 0.2); /* Light background for odd items */
+}
+
+.all-event-item:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2); /* Darker background for even items */
+}
+

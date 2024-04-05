@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+<style>
+  body {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(to bottom, #452837, #1b3a57);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+  <form method="post" class="form-style">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-signup">Sign up</button>
+    <a href="{% url 'Event:landing' %}" class="btn-cancel">Cancel</a>
+  </form>
+{% endblock %}

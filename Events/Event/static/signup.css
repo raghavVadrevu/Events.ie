@@ -1,0 +1,150 @@
+body {
+    background-color: #f8f9fa; /* Light Gray */
+    font-family: 'Roboto', sans-serif;
+    color: #2f4f4f; /* Dark Slate Gray */
+}
+
+h1 h2 {
+    color: #f5f5f5; /* Vivid Blue - you can change it if you want another color */
+    text-align: center;
+}
+
+.form-style {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 20px;
+    width: 40%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    overflow: scroll;
+    z-index: 2;
+}
+
+
+.addEvent {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    padding: 2%;
+    width: 90%; /* Adjust width as needed */
+    margin: auto; /* Center the form */
+}
+
+/* Styling form fields */
+.addEvent input[type="text"],
+.addEvent input[type="email"],
+.addEvent input[type="date"],
+.addEvent textarea,
+.addEvent select {
+    background-color: #fff; /* Darker field backgrounds */
+    border: 1px solid #555; /* Subtle border for the input fields */
+    color: #000; /* White text color */
+    padding: 10px; /* Padding inside the fields */
+    margin-bottom: 10px; /* Space between fields */
+    border-radius: 10px; /* Rounded corners for the fields */
+    width: 500px; /* Full width fields */
+}
+
+/* Placeholder color */
+.addEvent ::placeholder {
+    color: #858585; /* Lighter color for placeholders */
+}
+
+/* Focus styles for accessibility */
+.addEvent input:focus,
+.addEvent textarea:focus,
+.addEvent select:focus {
+    border-color: #ff7e67; /* Highlight focused element */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Error messages styling */
+.errorlist {
+    color: #ff7e67; /* Color for error messages */
+    font-size: 0.9em; /* Slightly smaller font size for errors */
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    width: calc(100% - 22px);
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #3cb371; /* Sea Green for focus */
+    box-shadow: 0 0 8px #3cb371;
+}
+
+.editEvent {
+    display: flex;
+    position: fixed;
+    margin: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ccc;
+    background: linear-gradient(to bottom, #452837, #1b3a57);
+    height: 100vh;
+    width: 100vw;
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 50%;
+}
+
+.btn-signup {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Vivid Blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-signup:hover {
+    background-color: #ff7e67; /* Sunset Orange for hover */
+}
+
+.btnSubmit {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Vivid Blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btnSubmit:hover {
+    background-color: #ff7e67; /* Sunset Orange for hover */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1; /* Ensure it's above the background but below the content */
+}  

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'events/list.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="list">
+    <h2>Users</h2>
+    <div class="subheads">
+        <p class="subheading">Name</p>
+        <p class="subheading">Email</p>
+        <p class="subheading">Delete</p>
+    </div>
+    {% for user in users %}
+        <div class="user-item">
+            <p class="element">{{ user.first_name }}</p>
+            <p class="element">{{ user.email }}</p>
+            <a href="{% url 'adminpage:delete_user' user.id %}" style="width: 10%;" aria-label="Delete user {{ user.username }}" onclick="return confirm('Are you sure you want to delete this user?');">
+                <i class="fas fa-trash" id="delete-user" aria-hidden="true"></i>
+            </a>             
+        </div>
+    {% empty %}
+        <p>No users found.</p>
+    {% endfor %}
+</div>
+<div class="cards">
+    {% for event in events %}
+        <div class="event-item" data-event-id="{{ event.id }}" onclick="openModal(this)">
+            <h3>{{ event.title }}</h3>
+            <p><i class="fas fa-map-marker-alt" style="color: black;"></i> {{ event.location }}</p>
+            <a href="{% url 'adminpage:edit_event' event.id %}" aria-label="Edit event {{ event.title }}" class="edit-event" onclick="event.stopPropagation();">
+                <i class="fas fa-edit" id="delete-event"></i>
+            </a>
+            <a href="{% url 'adminpage:delete_event' event.id %}" style="width: 10%;" aria-label="Delete event {{ event.title }}" onclick="event.stopPropagation(); return confirm('Are you sure you want to delete this event?');">
+                <i class="fas fa-trash" id="delete-event" aria-hidden="true"></i>
+            </a>
+        </div>
+    {% empty %}
+        <p>No events found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

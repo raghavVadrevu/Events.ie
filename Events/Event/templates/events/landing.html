@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}">
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3cb371;
+    }
+
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width: auto; 
+        height: auto;
+        z-index: -100;
+        background-size: cover;
+    }
+
+    .flex-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .main-container {
+        z-index: 1;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }   
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="video-background">
+    <div class="video-overlay"></div>  <!-- Overlay div -->
+    <video autoplay loop muted class="video-background">
+        <source src="{% static 'videos/background_video.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<div class="flex-container">
+    <div class="main-container">
+        <div class="banner">
+            <h1>Welcome to <span class="gradient-text">events.ie</span></h1>
+        </div>
+        <div class="login-section">
+            <form method="post" action="{% url 'Event:landing' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="button" id="login">Login</button>
+                <a href="{% url 'Event:signup' %}" class="button" id="signup">Sign Up</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
